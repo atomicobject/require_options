@@ -1,0 +1,11 @@
+== Install
+  script/plugin git://github.com/atomicobject/require_options.git
+  
+== Example
+  class Car
+    include RequireOptions    
+    def go(opts)
+      gear, speed = require_options(opts, :speed, :gear) 
+      # ...
+    end
+  end
