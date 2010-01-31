@@ -4,8 +4,9 @@ Simply extract named arguments from a hash.  Require or allow a set of keys.
 == Rationale
 When using hashes to accomplish named-argument semantics for methods, we
 noticed a common pattern:
- * We often pull options out into local vars at the head of a method
- * We often raise argument errors for missing keys in the hash
+
+* We often pull options out into local vars at the head of a method
+* We often raise argument errors for missing keys in the hash
 
 RequireOptions accomplishes both tasks succinctly.
 
