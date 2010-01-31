@@ -1,5 +1,6 @@
 == Description
-  Simply extract named arguments from a hash.  Require or allow a set of keys.
+Simply extract named arguments from a hash.  Require or allow a set of keys.
+
 == Install
   script/plugin git://github.com/atomicobject/require_options.git
   
