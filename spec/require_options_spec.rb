@@ -17,6 +17,12 @@ describe RequireOptions do
       name = require_options(opts, :name)
       name.should == "John"
     end
+
+    it "does NOT reject extraneous keys" do
+      opts = {:name => "John", :tractor => "Deere"}
+      name = require_options(opts, :name)
+      name.should == "John"
+    end
     
     it "raises an error if given key does not exist in hash" do
       opts = {:gear => 2}
