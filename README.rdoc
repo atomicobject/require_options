@@ -3,6 +3,10 @@ Simply extract named arguments from a hash.  Require or allow a set of keys.
 
 == Install
   script/plugin git://github.com/atomicobject/require_options.git
+
+or
+
+  gem install require_options
   
 == Example
   class Car
