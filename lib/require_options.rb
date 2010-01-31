@@ -1,10 +1,11 @@
 module RequireOptions
   def require_options(options, *required_keys)
-    required_keys.flatten.map do |key|
+    values = required_keys.flatten.map do |key|
       val = options[key]
       raise "#{key} required" unless options[key]
       val
     end
+    values.size == 1 ? values.first : values
   end
   
   def allow_options(options, *allowed_options)
@@ -14,6 +15,6 @@ module RequireOptions
   end
   
   def require_at_least_one(options, *keys)
-    raise "#{keys.split(' or ')} is required" unless keys.any? { |key| !options[key].blank?}
+    raise "#{keys.join(' or ')} is required" unless keys.any? { |key| !options[key].nil? && !options[key].empty?}
   end
 end

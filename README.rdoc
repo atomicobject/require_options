@@ -7,5 +7,5 @@
     def go(opts)
       gear, speed = require_options(opts, :speed, :gear) 
       # ...
-    end
+    end    
   end
