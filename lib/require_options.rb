@@ -1,5 +1,7 @@
 module RequireOptions
   def require_options(options, *required_keys)
+    raise ArgumentError, "options must be a hash" unless options.is_a?(Hash)
+    
     values = required_keys.flatten.map do |key|
       val = options[key]
       raise "#{key} required" unless options[key]

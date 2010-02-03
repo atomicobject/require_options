@@ -30,6 +30,12 @@ describe RequireOptions do
         require_options(opts, :gear, :speed)
       }.should raise_error("speed required")
     end
+    
+    it "raises an error if anything other than a hash is passed in" do
+      lambda {
+        require_options(2, :pole)
+      }.should raise_error(ArgumentError, /options must be a hash/i)
+    end
   end
   
   describe "#allow_options" do
