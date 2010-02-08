@@ -4,7 +4,7 @@ module RequireOptions
     
     values = required_keys.flatten.map do |key|
       val = options[key]
-      raise "#{key} required" unless options[key]
+      raise "#{key} required" if options[key].nil?
       val
     end
     values.size == 1 ? values.first : values

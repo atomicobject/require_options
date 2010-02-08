@@ -12,6 +12,12 @@ describe RequireOptions do
       speed.should == 200
     end
     
+    it "respects key that have a false value" do
+      opts = {:fast => false}
+      fast = require_options(opts, :fast)
+      fast.should be_false
+    end
+    
     it "returns a value rather than a list of values if only one key is given" do
       opts = {:name => "John"}
       name = require_options(opts, :name)
