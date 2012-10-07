@@ -35,6 +35,11 @@ or
       require_at_least_one opts, :license, :ssn
       # This method wants to use either opts[:license] OR opts[:ssn]
     end
+
+    def park(opts)
+      filter_options(opts, :spot)
+      # filter out keys besides :spot, for security purposes, e.g.
+    end
   end
 
 == Authors

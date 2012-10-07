@@ -12,11 +12,19 @@ module RequireOptions
   
   def allow_options(options, *allowed_options)
     options.keys.each do |key|
-      raise "#{key} not allowed" unless allowed_options.include?(key)
+      raise OptionNotAllowed, "#{key} not allowed" unless allowed_options.include?(key)
+    end
+  end
+
+  def filter_options(options, *allowed_options)
+    options.keep_if do |key, val|
+      allowed_options.include?(key)
     end
   end
   
   def require_at_least_one(options, *keys)
     raise "#{keys.join(' or ')} is required" unless keys.any? { |key| !options[key].nil? && !options[key].empty?}
   end
+
+  class OptionNotAllowed < StandardError; end
 end
