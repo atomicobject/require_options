@@ -86,4 +86,11 @@ describe RequireOptions do
       }.should raise_error("license or ssn is required")
     end
   end
+
+  describe "#filter_options" do
+    it "keeps only the options specified" do
+      opts = {:a => 1, :b => 2, :c => 3}
+      filter_options(opts, :a).should == {:a => 1}
+    end
+  end
 end
