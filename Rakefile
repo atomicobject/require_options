@@ -1,10 +1,11 @@
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
+desc 'Default: run specs.'
 task :default => :spec
 
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = "spec/**/*_spec.rb"
-  t.spec_opts = ["-f s -c"]
+desc "Run specs"
+RSpec::Core::RakeTask.new do |t|
+  # t.pattern = "./spec/**/*_spec.rb" # don't need this, it's default.
 end
 
 begin
