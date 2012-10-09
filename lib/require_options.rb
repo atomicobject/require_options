@@ -17,8 +17,8 @@ module RequireOptions
   end
 
   def filter_options(options, *allowed_options)
-    options.keep_if do |key, val|
-      allowed_options.include?(key)
+    options.each do |key, val|
+      options.delete(key) unless allowed_options.include?(key)
     end
   end
   
