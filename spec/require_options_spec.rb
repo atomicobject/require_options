@@ -88,9 +88,27 @@ describe RequireOptions do
   end
 
   describe "#filter_options" do
+    let(:opts) do {:a => 1, :b => 2, :c => 3} end
+
     it "keeps only the options specified" do
-      opts = {:a => 1, :b => 2, :c => 3}
-      filter_options(opts, :a).should == {:a => 1}
+      filter_options(opts, :a,:c).should == {:a => 1, :c => 3}
+    end
+
+    it "modifies the source array" do
+      filter_options(opts, :a, :c)
+      opts.should == {:a => 1, :c => 3}
+    end
+
+    it "keeps only the options specified" do
+      filter_options(opts, :a,:c).should == {:a => 1, :c => 3}
+    end
+
+    it "doesn't get upset if a desired key is not present" do
+      filter_options(opts, :a,:d).should == {:a => 1}
+    end
+
+    it "returns empty if no target keys are present" do
+      filter_options(opts, :zzz).should == {}
     end
   end
 end
